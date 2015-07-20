@@ -6,7 +6,11 @@
 package zjmvc.entity;
 
 import java.util.Date;
-
+/**
+ * user info
+ * @author jun
+ *
+ */
 public class User extends IdEntity {
 	private String loginName;
 	private String name;
