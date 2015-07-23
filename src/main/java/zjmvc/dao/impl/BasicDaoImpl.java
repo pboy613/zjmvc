@@ -5,11 +5,10 @@ package zjmvc.dao.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import zjmvc.dao.BasicDao;
@@ -23,18 +22,15 @@ import zjmvc.dao.BasicDao;
 @Repository("baseDao")
 public class BasicDaoImpl extends SqlSessionDaoSupport implements BasicDao {
 
-	@Resource
-	SqlSessionFactory sqlSessionFactory;
-
-	public BasicDaoImpl() {
-
-	}
-
 	@Override
+	@Autowired
 	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
 		super.setSqlSessionFactory(sqlSessionFactory);
 	}
-
+	
+	protected <S> S getMapper(Class<S> clazz) {
+        return getSqlSession().getMapper(clazz);
+    }
 	@Override
 	public <T> T selectOne(String statement) {
 		return getSqlSession().selectOne(statement);

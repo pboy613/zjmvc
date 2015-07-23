@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import zjmvc.service.UserService;
 
 /**
- * @author ju   n
+ * @author ju n
  *
  */
-@Controller("/user")
+@Controller
+@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
@@ -21,11 +22,17 @@ public class UserController {
 
 	@RequestMapping("/selectUser")
 	public void selectUser() {
-
+		System.out.println("selectUser");
 	}
 
 	@RequestMapping("/getUser")
 	public void insertUser() {
+		System.out.println("getUser");
+	}
 
+	@RequestMapping("/login.do")
+	public String login() {
+		System.out.println("welcome to china");
+		return "userList";
 	}
 }
