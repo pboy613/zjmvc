@@ -30,9 +30,9 @@ public class UserController {
 		System.out.println("getUser");
 	}
 
-	@RequestMapping("/login.do")
+	@RequestMapping("/login")
 	public String login() {
 		System.out.println("welcome to china");
-		return "userList";
+		return "permission/userList";
 	}
 }
