@@ -32,7 +32,7 @@ public class UserController {
 
 	@RequestMapping("/login")
 	public String login() {
-		System.out.println("welcome to china");
+		System.out.println("welcome to china11");
 		return "permission/userList";
 	}
 }
