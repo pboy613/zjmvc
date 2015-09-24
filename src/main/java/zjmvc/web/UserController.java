@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import zjmvc.service.UserService;
 
 /**
- * @author ju n
+ * @author jun
  *
  */
 @Controller
