@@ -3,10 +3,14 @@
  */
 package zjmvc.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import zjmvc.entity.User;
 import zjmvc.service.UserService;
 
 /**
@@ -17,8 +21,8 @@ import zjmvc.service.UserService;
 @RequestMapping("/user")
 public class UserController {
 
-	@Autowired
-	public UserService userService;
+	@Resource()
+	private UserService userService;
 
 	@RequestMapping("/selectUser")
 	public void selectUser() {
@@ -32,7 +36,8 @@ public class UserController {
 
 	@RequestMapping("/login")
 	public String login() {
-		System.out.println("welcome to china11");
+		List<User> users = userService.selectList("zjmvc.service.userdao.get", 1l);
+		System.out.println("welcome to china11:" + users.size());
 		return "permission/userList";
 	}
 }

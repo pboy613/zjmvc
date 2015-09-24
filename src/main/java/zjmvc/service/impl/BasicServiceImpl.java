@@ -17,7 +17,6 @@ public class BasicServiceImpl implements BasicService {
 
 	@Override
 	public <T> T selectOne(String statement) {
-
 		return basicDao.selectOne(statement);
 	}
 
